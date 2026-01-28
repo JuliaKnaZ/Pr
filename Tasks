@@ -1,0 +1,196 @@
+Задание 10
+импорт java.util.ArrayList;
+импорт java.util.Collections;
+
+открытый класс ArrayListPractice 
+
+ public static void main(String[] args) {
+
+ ArrayList<String> фрукты = новый ArrayList<>();
+ фрукты.add("Яблоко");
+ фрукты.add("Банан");
+ фрукты.add("Апельсин");
+ фрукты.add("Киви");
+ фрукты.add("Манго");
+
+ System.out.println("Список файлов:");
+ для (Струнный фрукт : фрукты) {
+ System.out.println("-" + фрукты);
+        }
+
+ фрукты.удалить(2); //удален "Апельсин"
+
+ System.out.println("\nПосл управления третего эта:");
+ для (Струнный фрукт : фрукты) {
+ System.out.println("-" + фрукты);
+        }
+
+ boolean hasApple = fruits.contains("Яблоко");
+ System.out.println("\nСодержит 'Яблоко'? " + hasApple);
+
+ Коллекции.сортировка(фрукты);
+ System.out.println("\nОтсортированный сайт:");
+ для (Струнный фрукт : фрукты) {
+ System.out.println("-" + фрукты);
+        }
+    }
+}
+Доп
+ArrayList<String> names = new ArrayList<>();
+names.add("Анна");
+names.add("Иван");
+names.add("Алексей");
+names.add("Мария");
+
+System.out.println("\nИмена на букву А:");
+для (Имя строки: имена) {
+ эсли (имя.startsWith("А")) {
+ System.out.println(имя);
+    }
+}
+Задание 11
+импортировать java.util.InputMismatchException;
+импортирование java.util.Scanner;
+открытый класс ExceptionHandlingPractice {
+ public static void main(String[] args) {
+ Сканер сканер = новый Сканер(System.in);
+ попробуй {
+ System.out.print("Ввести число: ");
+ int number = scanner.nextInt();
+ int резюльтат = 100 / число;
+ System.out.println("Результат: " + результат);
+ } catch (InputMismatchException e) {
+ System.out.println("Ошибка: Ведите коммерческое сообщение!");
+ } улов (Арифметическое изображение e) {
+ System.out.println("Ошибка: Делание на ноль невозможно!");
+ } наконец {
+ сканер.закрыть();
+ System.out.println("Сканнер закрыт.");
+        }
+    }
+}
+Задание 13
+класс Животное {
+
+    protected String name;
+    protected int age;
+
+    public Animal(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public void makeSound() {
+        System.out.println("Животное издаёт звук");
+    }
+}
+
+class Dog extends Animal {
+
+    public Dog(String name, int age) {
+        super(name, age);
+    }
+
+    @Override
+    public void makeSound() {
+        System.out.println("Гав-гав!");
+    }
+}
+
+class Cat extends Animal {
+
+    public Cat(String name, int age) {
+        super(name, age);
+    }
+
+    @Override
+    public void makeSound() {
+        System.out.println("Мяу!");
+    }
+}
+
+public class InheritancePractice {
+    public static void main(String[] args) {
+        Dog dog = new Dog("Бобик", 3);
+        Cat cat = new Cat("Мурка", 2);
+
+        dog.makeSound();
+        cat.makeSound();
+    }
+}
+Доп
+import java.util.ArrayList;
+
+class Animal {
+
+    protected String name;
+    protected int age;
+
+    public Animal(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public void makeSound() {
+        System.out.println("Животное издаёт звук");
+    }
+
+ публичная пустая информация() {
+ System.out.println("Имя: " + имя + ", список: " + список);
+    }
+}
+
+класс Собака расширяет Животное {
+
+ частная порода струн;
+
+ публичная собака (имя строки, возраст int, порода строки) {
+ супер(имя, возраст);
+ эта.порода = порода;
+    }
+
+ @Переопределить
+ public void makeSound() {
+ System.out.println("Гав-гав!");
+    }
+}
+
+класс Кошка расширить Животное {
+
+ public Cat(имя страниц, возраст целого числа) {
+ супер(имя, возраст);
+    }
+
+ @Переопределить
+ public void makeSound() {
+ System.out.println("Мяу!");
+    }
+}
+
+класс Птица расширяет Животное {
+
+ публичная Птица(имя страниц, возраст целого числа) {
+ супер(имя, возраст);
+    }
+
+ @Переопределить
+ public void makeSound() {
+ System.out.println("Чик-чирик!");
+    }
+}
+
+публичный класс Практика наследования {
+
+ public static void main(String[] args) {
+
+ ArrayList<Животное> животное = новый ArrayList<>();
+
+ animals.add(new Dog("Бобик", 3, "Овчарка"));
+ animals.add(new Cat("Мурка", 2));
+ животные.add(новая Птица("Кеша", 1));
+
+ для (Животное животное : животные) {
+ животное.makeSound();
+        }
+    }
+}
