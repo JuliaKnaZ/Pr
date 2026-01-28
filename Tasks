@@ -1,37 +1,39 @@
 Задание 10
-импорт java.util.ArrayList;
-импорт java.util.Collections;
+import java.util.ArrayList;
+import java.util.Collections;
 
-открытый класс ArrayListPractice 
+public class ArrayListPractice {
 
- public static void main(String[] args) {
+    public static void main(String[] args) {
 
- ArrayList<String> фрукты = новый ArrayList<>();
- фрукты.add("Яблоко");
- фрукты.add("Банан");
- фрукты.add("Апельсин");
- фрукты.add("Киви");
- фрукты.add("Манго");
+      
+        ArrayList<String> fruits = new ArrayList<>();
+        fruits.add("Яблоко");
+        fruits.add("Банан");
+        fruits.add("Апельсин");
+        fruits.add("Киви");
+        fruits.add("Манго");
 
- System.out.println("Список файлов:");
- для (Струнный фрукт : фрукты) {
- System.out.println("-" + фрукты);
+        System.out.println("Список фруктов:");
+        for (String fruit : fruits) {
+            System.out.println("- " + fruit);
         }
 
- фрукты.удалить(2); //удален "Апельсин"
+        fruits.remove(2); // удаляем "Апельсин"
 
- System.out.println("\nПосл управления третего эта:");
- для (Струнный фрукт : фрукты) {
- System.out.println("-" + фрукты);
+        System.out.println("\nПосле удаления третьего элемента:");
+        for (String fruit : fruits) {
+            System.out.println("- " + fruit);
         }
 
- boolean hasApple = fruits.contains("Яблоко");
- System.out.println("\nСодержит 'Яблоко'? " + hasApple);
+  
+        boolean hasApple = fruits.contains("Яблоко");
+        System.out.println("\nСодержит 'Яблоко'? " + hasApple);
 
- Коллекции.сортировка(фрукты);
- System.out.println("\nОтсортированный сайт:");
- для (Струнный фрукт : фрукты) {
- System.out.println("-" + фрукты);
+        Collections.sort(fruits);
+        System.out.println("\nОтсортированный список:");
+        for (String fruit : fruits) {
+            System.out.println("- " + fruit);
         }
     }
 }
@@ -49,28 +51,36 @@ System.out.println("\nИмена на букву А:");
     }
 }
 Задание 11
-импортировать java.util.InputMismatchException;
-импортирование java.util.Scanner;
-открытый класс ExceptionHandlingPractice {
- public static void main(String[] args) {
- Сканер сканер = новый Сканер(System.in);
- попробуй {
- System.out.print("Ввести число: ");
- int number = scanner.nextInt();
- int резюльтат = 100 / число;
- System.out.println("Результат: " + результат);
- } catch (InputMismatchException e) {
- System.out.println("Ошибка: Ведите коммерческое сообщение!");
- } улов (Арифметическое изображение e) {
- System.out.println("Ошибка: Делание на ноль невозможно!");
- } наконец {
- сканер.закрыть();
- System.out.println("Сканнер закрыт.");
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class ExceptionHandlingPractice {
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            System.out.print("Введите число: ");
+            int number = scanner.nextInt();
+
+            int result = 100 / number;
+            System.out.println("Результат: " + result);
+
+        } catch (InputMismatchException e) {
+            System.out.println("Ошибка: Введите корректное число!");
+
+        } catch (ArithmeticException e) {
+            System.out.println("Ошибка: Деление на ноль невозможно!");
+
+        } finally {
+            scanner.close();
+            System.out.println("Сканнер закрыт.");
         }
     }
 }
 Задание 13
-класс Животное {
+class Animal {
 
     protected String name;
     protected int age;
@@ -110,7 +120,9 @@ class Cat extends Animal {
 }
 
 public class InheritancePractice {
+
     public static void main(String[] args) {
+
         Dog dog = new Dog("Бобик", 3);
         Cat cat = new Cat("Мурка", 2);
 
@@ -135,62 +147,62 @@ class Animal {
         System.out.println("Животное издаёт звук");
     }
 
- публичная пустая информация() {
- System.out.println("Имя: " + имя + ", список: " + список);
+    public void info() {
+        System.out.println("Имя: " + name + ", возраст: " + age);
     }
 }
 
-класс Собака расширяет Животное {
+class Dog extends Animal {
 
- частная порода струн;
+    private String breed;
 
- публичная собака (имя строки, возраст int, порода строки) {
- супер(имя, возраст);
- эта.порода = порода;
+    public Dog(String name, int age, String breed) {
+        super(name, age);
+        this.breed = breed;
     }
 
- @Переопределить
- public void makeSound() {
- System.out.println("Гав-гав!");
-    }
-}
-
-класс Кошка расширить Животное {
-
- public Cat(имя страниц, возраст целого числа) {
- супер(имя, возраст);
-    }
-
- @Переопределить
- public void makeSound() {
- System.out.println("Мяу!");
+    @Override
+    public void makeSound() {
+        System.out.println("Гав-гав!");
     }
 }
 
-класс Птица расширяет Животное {
+class Cat extends Animal {
 
- публичная Птица(имя страниц, возраст целого числа) {
- супер(имя, возраст);
+    public Cat(String name, int age) {
+        super(name, age);
     }
 
- @Переопределить
- public void makeSound() {
- System.out.println("Чик-чирик!");
+    @Override
+    public void makeSound() {
+        System.out.println("Мяу!");
     }
 }
 
-публичный класс Практика наследования {
+class Bird extends Animal {
 
- public static void main(String[] args) {
+    public Bird(String name, int age) {
+        super(name, age);
+    }
 
- ArrayList<Животное> животное = новый ArrayList<>();
+    @Override
+    public void makeSound() {
+        System.out.println("Чик-чирик!");
+    }
+}
 
- animals.add(new Dog("Бобик", 3, "Овчарка"));
- animals.add(new Cat("Мурка", 2));
- животные.add(новая Птица("Кеша", 1));
+public class InheritancePractice {
 
- для (Животное животное : животные) {
- животное.makeSound();
+    public static void main(String[] args) {
+
+        ArrayList<Animal> animals = new ArrayList<>();
+
+        animals.add(new Dog("Бобик", 3, "Овчарка"));
+        animals.add(new Cat("Мурка", 2));
+        animals.add(new Bird("Кеша", 1));
+
+        for (Animal animal : animals) {
+            animal.makeSound();
         }
     }
 }
